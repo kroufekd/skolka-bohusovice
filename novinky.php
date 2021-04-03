@@ -393,6 +393,7 @@
 </body>
 <script src="assets/js/Trumbowyg-master/dist/plugins/colors/trumbowyg.colors.min.js"></script>
 <script>
+var x;
 $('.mainText').hide();
 $('.editorr').trumbowyg({
     autogrow: true,
