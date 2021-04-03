@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="content-language" content="cs"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2362a2">
+<meta name="apple-mobile-web-app-title" content="Datov&eacute; schr&aacute;nky">
+<meta name="application-name" content="Datov&eacute; schr&aacute;nky">
+<meta name="msapplication-TileColor" content="#2362a2">
+<meta name="theme-color" content="#2362a2">
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<meta name="author" content=""/>
+<meta name="author" content=""/>
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,user-scalable=yes"/>
+<meta name="format-detection" content="telephone=no"/>
+<link rel="stylesheet" href="/as3/static/styles/bootstrap.4.5.0.min.css" type="text/css"/>
+<link rel="stylesheet" href="/as3/static/styles/font-awesome.min.css" type="text/css"/>
+<link rel="stylesheet" href="/as3/static/styles/main.css?ver=7" type="text/css"/>
+<link rel="stylesheet" href="/as3/static/keys/isds_keys.css" type="text/css"/>
+<link rel="stylesheet" href="/as3/static/styles/custom.css?ver=8" type="text/css"/>
+<script src="/as3/static/js/jquery-3.5.1.slim.min.js" type="text/javascript" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"></script>
+<script src="/as3/static/js/bootstrap.bundle.4.5.0.min.js" type="text/javascript"></script>
+<script src="/as3/static/js/common.js" type="text/javascript"></script>
+<script src="/as3/static/js/utilitiesEx.js" type="text/javascript"></script>
+<script src="/as3/static/js/multipleFormsOnPageEx.js" type="text/javascript"></script>
+<script src="/as3/static/js/multipleFormsIfcEx.js" type="text/javascript"></script>
+<script src="/as3/static/js/formAlertsEx.js" type="text/javascript"></script>
+<script src="/as3/static/js/isdsValidateLoginEx.js?ver=2" type="text/javascript"></script>
+<script src="/as3/static/js/capsLockDetectEx.js" type="text/javascript"></script>
+<script src="/as3/static/keys/keyboardEx.js?ver=2" type="text/javascript"></script>
+<script src="/as3/static/js/sendSmsEx.js?ver=2" type="text/javascript"></script>
+<script src="/as3/static/js/switchTabEx.js" type="text/javascript"></script>
+<title> Datové schránky
+</title>
+</head>
+<body class="isds-background no-fixed-header login d-flex flex-column" id="login-redesign">
+<!-- HLAS: -->
+<h1 class="aural">Datové schránky - Přihlášení</h1>
+<h2 class="aural"><a name="local-aural">Hlasová navigace a klávesové zkratky</a></h2>
+<p class="aural robots-nocontent" id="aural-nav">
+<a href="#local-content" rel="nofollow" accesskey="0" tabindex="-1">Jít na obsah (0)</a>.
+<a href="#local-nav" rel="nofollow" accesskey="5" tabindex="-1">Jít na hlavní menu (5)</a>.
+<a href="#local-aural" rel="nofollow" accesskey="1" tabindex="-1">Nápověda ke klávesovým zkratkám (1)</a>.
+</p>
+<div class="d-flex flex-column flex-grow-1">
+<!-- nalepi sloupecky na sebe (musime rucne resit paddingy, ale to asi nebude problem), pokud je to nevyhovujici je mozne tomuto oteviracimu divu pridat tridu .container-fluid -->
+<div class="row no-gutters flex-grow-0">
+<div class="col">
+<nav class="navbar navbar-expand d-flex navbar--transparent">
+<div class="header__side-content">
+<span class="header__logo ">
+datové schránky
+</span>
+</div>
+<div class="header__content-container flex-grow-1 text-right">
+<div class="ttu ls-098 fw-500 lh-16">
+<span class="isds-text-white-transparent">Infolinka</span> <a class='static-white-link' href='tel:954 200 200'>954 200 200</a>
+</div>
+</div>
+</nav>
+</div>
+</div>
+<div class="row no-gutters">
+<div class="login-box">
+<a name="local-nav"></a>
+<div class="login-box__header">
+<ul class="login-box__menu d-flex justify-content-between">
+<li id="loginTabHeadBasic" class="login-box__menu-item active" >
+<a href="https://www.mojedatovaschranka.cz/as/login?type=captcha&uri=https%3A%2F%2Fwww.mojedatovaschranka.cz%2Fportal%2FISDS%2F">Přihlášení<br>jménem a heslem</a>
+</li>
+<li id="loginTabHeadMep" class="login-box__menu-item " >
+<a href="https://www.mojedatovaschranka.cz/as/login?type=mep&uri=https%3A%2F%2Fwww.mojedatovaschranka.cz%2Fportal%2FISDS%2F">Přihlášení<br/>mobilním klíčem</a>
+</li>
+<li id="loginTabHeadSaml"
+class="login-box__menu-item
+d-none d-sm-inline-block" >
+<a href="https://www.mojedatovaschranka.cz/as/login?type=saml&uri=https%3A%2F%2Fwww.mojedatovaschranka.cz%2Fportal%2FISDS%2F">Přihlášení <br><span style="text-transform: none">e</span>IDENTITA.CZ</a>
+</li>
+<li id="loginTabHeadOther" class="login-box__menu-item " >
+<a href="https://www.mojedatovaschranka.cz/as/login?type=calc&uri=https%3A%2F%2Fwww.mojedatovaschranka.cz%2Fportal%2FISDS%2F">Další způsoby<br>přihlášení</a>
+</li>
+</ul>
+</div>
+<div class="login-box__content">
+<a name="local-content"></a>
+<div id="loginTabBodyBasic" class="row " >
+<div class="col-12 col-sm-6 login-box__column">
+<!-- HLAS: --> <h2 class="aural">Přihlašovací formulář</h2>
+<form id="IDPLoginBM" enctype="application/x-www-form-urlencoded" method="post" action="processLogin"
+autocomplete="off">
+<input type="hidden" name="type" value="captcha"/>
+<input type="hidden" name="uri" value="https://www.mojedatovaschranka.cz/portal/ISDS/"/>
+<input type="hidden" name="ats" value="false"/>
+<input type="hidden" name="isUriCert" value="false"/>
+<input type="hidden" name="typesTab" value="captcha,mep" />
+<input type="hidden" name="typesTabOrAccor" value="saml" />
+<input type="hidden" name="typesAccor" value="sms,certificate,calc" />
+<input type="hidden" name="Ecom_Captcha" id="Ecom_CaptchaBM" value="50505"/>
+<div class="error">
+</div>
+<div class="row no-gutters">
+<div id="usernameHolderBM" class="form-group icon-input input--border">
+<input type="text" class="form-control" id="Ecom_User_IDBM" name="Ecom_User_ID" placeholder=""
+title="Vyplňte přihlašovací jméno" maxlength="6" tabindex="1" />
+<label for="Ecom_User_IDBM" id="labelUsernameBM" class="control-label pl-3">Uživatelské jméno</label>
+</div>
+<div id="passwordHolderBM" class="form-group icon-input input--border input--white">
+<input type="password" class="form-control icon-control" id="Ecom_PasswordBM" name="Ecom_Password"
+placeholder="" title="Vyplňte přihlašovací heslo" tabindex="2" />
+<span class="d-none d-md-block keep-box-height">
+<i class="fa fa-keyboard-o clickable bigger" id="keyboard1BM" title="Otevřít grafickou klávesnici"></i>
+</span>
+<label for="Ecom_PasswordBM" id="labelPasswordBM" class="control-label pl-3">Heslo</label>
+</div>
+<div class="has-error" id="errorsAndWarningsBM">
+</div>
+</div>
+<div class="row no-gutters">
+<button type="submit" class="btn btn-primary btn-lg btn--login ttu" name="send" id="Ecom_Button_LoginBM" tabindex="5">Přihlásit
+se
+</button>
+</div>
+</form>
+</div>
+<div class="col-12 col-sm-6 login-box__column">
+<p>
+Vyplňte své uživatelské jméno a heslo a přihlaste se. Pokud jste se ještě nikdy
+nepřihlašovali do své datové schránky, použijte přihlašovací údaje, které Vám byly vygenerovány
+systémem a doručeny v obálce se žlutým pruhem nebo prostřednictvím aktivačního portálu.
+</p>
+<ul class="login-box__links">
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page12.html" target="_blank">Jste zde poprvé?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page11.html" target="_blank">Nemůžete se přihlásit?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page1.html#1_5" target="_blank" id="loginHelpLinkBM">Nápověda</a>
+</li>
+<li class="login-box__links-item">
+<a href="https://www.datoveschranky.info/informacni-video" target="_blank">Video návod</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="loginTabBodyMep" class="row d-none" >
+<div class="col-12 col-sm-6 login-box__column">
+<!-- HLAS: --> <h2 class="aural">Přihlašovací formulář</h2>
+<form id="IDPLoginEM"
+enctype="application/x-www-form-urlencoded"
+method="post"
+action="processLogin"
+autocomplete="off">
+<input type="hidden" name="type" value="captcha"/>
+<input type="hidden" name="uri" value="https://www.mojedatovaschranka.cz/portal/ISDS/"/>
+<input type="hidden" name="ats" value="false"/>
+<input type="hidden" name="isUriCert" value="false"/>
+<input type="hidden" name="typesTab" value="captcha,mep" />
+<input type="hidden" name="typesTabOrAccor" value="saml" />
+<input type="hidden" name="typesAccor" value="sms,certificate,calc" />
+<div class="error">
+</div>
+</form>
+</div>
+<div class="col-12 col-sm-6 login-box__column">
+<p>
+Zde se můžete snadno přihlásit bez zadávání jména a hesla pomocí aplikace Mobilní klíč ISDS. Aktivaci tohoto způsobu
+přihlašování najdete v Nastavení > Možnosti přihlášení.
+</p>
+<ul class="login-box__links">
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page12.html" target="_blank">Jste zde poprvé?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page11.html" target="_blank">Nemůžete se přihlásit?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page1.html#1_5" target="_blank" id="loginHelpLinkEM">Nápověda</a>
+</li>
+<li class="login-box__links-item">
+<a href="https://www.datoveschranky.info/informacni-video" target="_blank">Video návod</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="loginTabBodySaml" class="row d-none" >
+<div class="col-12 col-sm-6 login-box__column">
+<!-- HLAS: --> <h2 class="aural">Přihlašovací formulář</h2>
+<form id="IDPLoginNM" enctype="application/x-www-form-urlencoded" method="post" action="processLogin"
+autocomplete="off">
+<input type="hidden" name="type" value="captcha"/>
+<input type="hidden" name="uri" value="https://www.mojedatovaschranka.cz/portal/ISDS/"/>
+<input type="hidden" name="ats" value="false"/>
+<input type="hidden" name="isUriCert" value="false"/>
+<input type="hidden" name="typesTab" value="captcha,mep" />
+<input type="hidden" name="typesTabOrAccor" value="saml" />
+<input type="hidden" name="typesAccor" value="sms,certificate,calc" />
+<div class="error">
+</div>
+<div class="row no-gutters">
+</div>
+</form>
+</div>
+<div class="col-12 col-sm-6 login-box__column">
+<p>
+Tlačítkem Přesměrování na portál eIDENTITA.CZ budete přesměrováni na portál Národního bodu pro výběr způsobu přihlášení, např. eObčankou.
+</p>
+<ul class="login-box__links">
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page12.html" target="_blank">Jste zde poprvé?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page11.html" target="_blank">Nemůžete se přihlásit?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page1.html#1_5" target="_blank" id="loginHelpLinkNM">Nápověda</a>
+</li>
+<li class="login-box__links-item">
+<a href="https://www.datoveschranky.info/informacni-video" target="_blank">Video návod</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="loginTabBodySms" class="row d-none" >
+<div class="col-12 col-sm-6 login-box__column">
+<!-- HLAS: --> <h2 class="aural">Přihlašovací formulář</h2>
+<form id="IDPLoginSM" enctype="application/x-www-form-urlencoded" method="post" action="processLogin"
+autocomplete="off">
+<input type="hidden" name="type" value="captcha"/>
+<input type="hidden" name="uri" value="https://www.mojedatovaschranka.cz/portal/ISDS/"/>
+<input type="hidden" name="ats" value="false"/>
+<input type="hidden" name="isUriCert" value="false"/>
+<input type="hidden" name="typesTab" value="captcha,mep" />
+<input type="hidden" name="typesTabOrAccor" value="saml" />
+<input type="hidden" name="typesAccor" value="sms,certificate,calc" />
+<div class="error">
+</div>
+<div class="row no-gutters">
+<div id="usernameHolderSM" class="form-group icon-input input--border">
+<input type="text" class="form-control" id="Ecom_User_IDSM" name="Ecom_User_ID" placeholder=""
+title="Vyplňte přihlašovací jméno" maxlength="6" tabindex="1" />
+<label for="Ecom_User_IDSM" id="labelUsernameSM" class="control-label pl-3">Uživatelské jméno</label>
+</div>
+<div id="passwordHolderSM" class="form-group icon-input input--border input--white">
+<input type="password" class="form-control icon-control" id="Ecom_PasswordSM" name="Ecom_Password"
+placeholder="" title="Vyplňte přihlašovací heslo" tabindex="2" />
+<span class="d-none d-md-block keep-box-height">
+<i class="fa fa-keyboard-o clickable bigger" id="keyboard1SM" title="Otevřít grafickou klávesnici"></i>
+</span>
+<label for="Ecom_PasswordSM" id="labelPasswordSM" class="control-label pl-3">Heslo</label>
+</div>
+<div class="has-error" id="errorsAndWarningsSM">
+</div>
+<div id="smsHolderSM" class="form-group icon-input input--border">
+<input type="text" class="form-control icon-control" id="Ecom_TotpSM" name="Ecom_Totp" placeholder=""
+title="Vyplňte kód, který přišel v SMS" tabindex="5" />
+<a href="" id="totpButtonSM" title="Zaslat SMS s kódem" tabindex="4">
+<span class="keep-box-height" id="sms_buttonSM">
+<i class="fa fa-mobile clickable bigger"></i>
+</span>
+<span id="sms_button_textSM"></span>
+</a>
+<label for="Ecom_TotpSM" id="labelSmsSM" class="control-label pl-3">SMS kód</label>
+</div>
+</div>
+<div class="row no-gutters">
+<button type="submit" class="btn btn-primary btn-lg btn--login ttu" name="send" id="Ecom_Button_LoginSM" tabindex="5">Přihlásit
+se
+</button>
+</div>
+</form>
+</div>
+<div class="col-12 col-sm-6 login-box__column">
+<p>
+Vyplňte své uživatelské jméno a heslo a stiskněte tlačítko pro zaslání SMS. Na mobilní telefon Vám
+obratem doručíme kód, který opište do zbývajícího pole a přihlaste se.
+Bezplatnou alternativou k tomuto způsobu přihlašování je přihlášení Mobilním klíčem.
+</p>
+<ul class="login-box__links">
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page12.html" target="_blank">Jste zde poprvé?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page11.html" target="_blank">Nemůžete se přihlásit?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page1.html#1_5" target="_blank" id="loginHelpLinkSM">Nápověda</a>
+</li>
+<li class="login-box__links-item">
+<a href="https://www.datoveschranky.info/informacni-video" target="_blank">Video návod</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="loginTabBodyCert" class="row d-none" >
+<!-- HLAS: --> <h2 class="aural">Přihlašovací formulář</h2>
+<form id="IDPLoginCM" enctype="application/x-www-form-urlencoded" method="post" action="processLogin"
+autocomplete="off">
+<input type="hidden" name="type" value="captcha"/>
+<input type="hidden" name="uri" value="https://www.mojedatovaschranka.cz/portal/ISDS/"/>
+<input type="hidden" name="ats" value="false"/>
+<input type="hidden" name="isUriCert" value="false"/>
+<input type="hidden" name="typesTab" value="captcha,mep" />
+<input type="hidden" name="typesTabOrAccor" value="saml" />
+<input type="hidden" name="typesAccor" value="sms,certificate,calc" />
+<div class="error">
+</div>
+<p>
+Po stisku „Přihlásit pomocí certifikátu“ budete přesměrováni na stránku ověřující klientský certifikát. Tlačítko
+stiskněte pouze tehdy, když
+</p>
+<ul>
+<li>máte zaregistrovaný přihlašovací certifikát v ISDS</li>
+<li>certifikát je nainstalovaný ve webovém prohlížeči, který právě používáte.</li>
+</ul>
+<p>
+Pokud při ověřování certifikátu dojde k chybě, webový prohlížeč zobrazí informaci, že se nemůže připojit.
+</p>
+<div class="form-group pt-0 mt-5 mb-5">
+<div class="checkbox">
+<label class="label-component">
+<input id="checkboxDoNotDispAnyMoreCM" type="checkbox" class="show-pointer"/>
+<span title="Checkbox" class="title">
+Na tomto počítači již nezobrazovat.
+</span>
+<span class="checkmark"></span>
+</label>
+</div>
+</div>
+<button type="button" id="buttonLoginWithCertificateCM" hyperlinkLocation="https://cert.mojedatovaschranka.cz/as/login?type=captcha&uri=https%3A%2F%2Fcert.mojedatovaschranka.cz%2Fportal%2FISDS%2F" class="btn btn-primary btn-lg btn--login ttu">
+<p>Přihlásit pomocí certifikátu</p>
+</button>
+</form>
+<ul class="login-box__links">
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page12.html" target="_blank">Jste zde poprvé?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page11.html" target="_blank">Nemůžete se přihlásit?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page1.html#1_5" target="_blank" id="loginHelpLinkCM">Nápověda</a>
+</li>
+<li class="login-box__links-item">
+<a href="https://www.datoveschranky.info/informacni-video" target="_blank">Video návod</a>
+</li>
+</ul>
+</div>
+<div id="loginTabBodyCalc" class="row d-none" >
+<div class="col-12 col-sm-6 login-box__column">
+<!-- HLAS: --> <h2 class="aural">Přihlašovací formulář</h2>
+<form id="IDPLoginTM" enctype="application/x-www-form-urlencoded" method="post" action="processLogin"
+autocomplete="off">
+<input type="hidden" name="type" value="captcha"/>
+<input type="hidden" name="uri" value="https://www.mojedatovaschranka.cz/portal/ISDS/"/>
+<input type="hidden" name="ats" value="false"/>
+<input type="hidden" name="isUriCert" value="false"/>
+<input type="hidden" name="typesTab" value="captcha,mep" />
+<input type="hidden" name="typesTabOrAccor" value="saml" />
+<input type="hidden" name="typesAccor" value="sms,certificate,calc" />
+<div class="error">
+</div>
+<div class="row no-gutters">
+<div id="usernameHolderTM" class="form-group icon-input input--border">
+<input type="text" class="form-control" id="Ecom_User_IDTM" name="Ecom_User_ID" placeholder=""
+title="Vyplňte přihlašovací jméno" maxlength="6" tabindex="1" />
+<label for="Ecom_User_IDTM" id="labelUsernameTM" class="control-label pl-3">Uživatelské jméno</label>
+</div>
+<div id="passwordHolderTM" class="form-group icon-input input--border input--white">
+<input type="password" class="form-control icon-control" id="Ecom_PasswordTM" name="Ecom_Password"
+placeholder="" title="Vyplňte přihlašovací heslo" tabindex="2" />
+<span class="d-none d-md-block keep-box-height">
+<i class="fa fa-keyboard-o clickable bigger" id="keyboard1TM" title="Otevřít grafickou klávesnici"></i>
+</span>
+<label for="Ecom_PasswordTM" id="labelPasswordTM" class="control-label pl-3">Heslo</label>
+</div>
+<div class="has-error" id="errorsAndWarningsTM">
+</div>
+<div id="calcHolderTM" class="form-group icon-input input--border">
+<input type="text" class="form-control" id="Ecom_HotpTM" name="Ecom_Hotp" placeholder=""
+title="Vyplňte kód z Vašeho tokenu" tabindex="3" />
+<label for="Ecom_HotpTM" id="labelCalcTM" class="control-label pl-3">Kód</label>
+</div>
+</div>
+<div class="row no-gutters">
+<button type="submit" class="btn btn-primary btn-lg btn--login ttu" name="send" id="Ecom_Button_LoginTM" tabindex="5">Přihlásit
+se
+</button>
+</div>
+</form>
+</div>
+<div class="col-12 col-sm-6 login-box__column">
+<p>
+Vyplňte své uživatelské jméno a heslo, vygenerujte si na svém zařízení bezpečnostní kód, opište jej do
+zbývajícího pole a přihlaste se. Bezpečnostní kód lze bezplatně generovat na zařízeních s operačním
+systémem iOS, Android a dalších. Bližší informace naleznete v nápovědě.<br/>
+<strong>Přihlášení bezpečnostním kódem nebude do budoucna podporováno. Doporučujeme přechod na přihlášení Mobilním klíčem.</strong>
+</p>
+<ul class="login-box__links">
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page12.html" target="_blank">Jste zde poprvé?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page11.html" target="_blank">Nemůžete se přihlásit?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page1.html#1_5" target="_blank" id="loginHelpLinkTM">Nápověda</a>
+</li>
+<li class="login-box__links-item">
+<a href="https://www.datoveschranky.info/informacni-video" target="_blank">Video návod</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="loginTabBodyOther" class="row d-none" >
+<div class="col-12">
+<div class="accordion" id="accordionExample">
+<div class="accordion__item d-sm-none ">
+<div class="accordion__header" id="headingOne">
+<h5 class="mb-0">
+<button hyperlinkLocation="https://www.mojedatovaschranka.cz/as/login?type=saml&uri=https%3A%2F%2Fwww.mojedatovaschranka.cz%2Fportal%2FISDS%2F"
+class="collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+Přihlášení <span style="text-transform: none">e</span>IDENTITA.CZ
+</button>
+</h5>
+</div>
+<div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+<div class="accordion__body">
+<div class="row no-gutters">
+<div class="col-12 col-sm-6 login-box__column">
+<!-- HLAS: --> <h2 class="aural">Přihlašovací formulář</h2>
+<form id="IDPLoginNA" enctype="application/x-www-form-urlencoded" method="post" action="processLogin"
+autocomplete="off">
+<input type="hidden" name="type" value="captcha"/>
+<input type="hidden" name="uri" value="https://www.mojedatovaschranka.cz/portal/ISDS/"/>
+<input type="hidden" name="ats" value="false"/>
+<input type="hidden" name="isUriCert" value="false"/>
+<input type="hidden" name="typesTab" value="captcha,mep" />
+<input type="hidden" name="typesTabOrAccor" value="saml" />
+<input type="hidden" name="typesAccor" value="sms,certificate,calc" />
+<div class="error">
+</div>
+<div class="row no-gutters">
+</div>
+</form>
+</div>
+<div class="col-12 col-sm-6 login-box__column">
+<p>
+Tlačítkem Přesměrování na portál eIDENTITA.CZ budete přesměrováni na portál Národního bodu pro výběr způsobu přihlášení, např. eObčankou.
+</p>
+<ul class="login-box__links">
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page12.html" target="_blank">Jste zde poprvé?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page11.html" target="_blank">Nemůžete se přihlásit?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page1.html#1_5" target="_blank" id="loginHelpLinkNA">Nápověda</a>
+</li>
+<li class="login-box__links-item">
+<a href="https://www.datoveschranky.info/informacni-video" target="_blank">Video návod</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion__item ">
+<div class="accordion__header" id="headingTwo">
+<h5 class="mb-0">
+<button hyperlinkLocation="https://www.mojedatovaschranka.cz/as/login?type=sms&uri=https%3A%2F%2Fwww.mojedatovaschranka.cz%2Fportal%2FISDS%2F"
+class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+Přihlášení pomocí SMS
+</button>
+</h5>
+</div>
+<div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionExample">
+<div class="accordion__body">
+<div class="row no-gutters">
+<div class="col-12 col-sm-6 login-box__column">
+<!-- HLAS: --> <h2 class="aural">Přihlašovací formulář</h2>
+<form id="IDPLoginSA" enctype="application/x-www-form-urlencoded" method="post" action="processLogin"
+autocomplete="off">
+<input type="hidden" name="type" value="captcha"/>
+<input type="hidden" name="uri" value="https://www.mojedatovaschranka.cz/portal/ISDS/"/>
+<input type="hidden" name="ats" value="false"/>
+<input type="hidden" name="isUriCert" value="false"/>
+<input type="hidden" name="typesTab" value="captcha,mep" />
+<input type="hidden" name="typesTabOrAccor" value="saml" />
+<input type="hidden" name="typesAccor" value="sms,certificate,calc" />
+<div class="error">
+</div>
+<div class="row no-gutters">
+<div id="usernameHolderSA" class="form-group icon-input input--border">
+<input type="text" class="form-control" id="Ecom_User_IDSA" name="Ecom_User_ID" placeholder=""
+title="Vyplňte přihlašovací jméno" maxlength="6" tabindex="1" />
+<label for="Ecom_User_IDSA" id="labelUsernameSA" class="control-label pl-3">Uživatelské jméno</label>
+</div>
+<div id="passwordHolderSA" class="form-group icon-input input--border input--white">
+<input type="password" class="form-control icon-control" id="Ecom_PasswordSA" name="Ecom_Password"
+placeholder="" title="Vyplňte přihlašovací heslo" tabindex="2" />
+<span class="d-none d-md-block keep-box-height">
+<i class="fa fa-keyboard-o clickable bigger" id="keyboard1SA" title="Otevřít grafickou klávesnici"></i>
+</span>
+<label for="Ecom_PasswordSA" id="labelPasswordSA" class="control-label pl-3">Heslo</label>
+</div>
+<div class="has-error" id="errorsAndWarningsSA">
+</div>
+<div id="smsHolderSA" class="form-group icon-input input--border">
+<input type="text" class="form-control icon-control" id="Ecom_TotpSA" name="Ecom_Totp" placeholder=""
+title="Vyplňte kód, který přišel v SMS" tabindex="5" />
+<a href="" id="totpButtonSA" title="Zaslat SMS s kódem" tabindex="4">
+<span class="keep-box-height" id="sms_buttonSA">
+<i class="fa fa-mobile clickable bigger"></i>
+</span>
+<span id="sms_button_textSA"></span>
+</a>
+<label for="Ecom_TotpSA" id="labelSmsSA" class="control-label pl-3">SMS kód</label>
+</div>
+</div>
+<div class="row no-gutters">
+<button type="submit" class="btn btn-primary btn-lg btn--login ttu" name="send" id="Ecom_Button_LoginSA" tabindex="5">Přihlásit
+se
+</button>
+</div>
+</form>
+</div>
+<div class="col-12 col-sm-6 login-box__column">
+<p>
+Vyplňte své uživatelské jméno a heslo a stiskněte tlačítko pro zaslání SMS. Na mobilní telefon Vám
+obratem doručíme kód, který opište do zbývajícího pole a přihlaste se.
+Bezplatnou alternativou k tomuto způsobu přihlašování je přihlášení Mobilním klíčem.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion__item">
+<div class="accordion__header" id="headingThree">
+<h5 class="mb-0">
+<button hyperlinkLocation="#"
+class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+Přihlášení certifikátem
+</button>
+</h5>
+</div>
+<div id="collapseThree" class="collapse " aria-labelledby="headingThree" data-parent="#accordionExample">
+<div class="accordion__body">
+<div class="row no-gutters">
+<!-- HLAS: --> <h2 class="aural">Přihlašovací formulář</h2>
+<form id="IDPLoginCA" enctype="application/x-www-form-urlencoded" method="post" action="processLogin"
+autocomplete="off">
+<input type="hidden" name="type" value="captcha"/>
+<input type="hidden" name="uri" value="https://www.mojedatovaschranka.cz/portal/ISDS/"/>
+<input type="hidden" name="ats" value="false"/>
+<input type="hidden" name="isUriCert" value="false"/>
+<input type="hidden" name="typesTab" value="captcha,mep" />
+<input type="hidden" name="typesTabOrAccor" value="saml" />
+<input type="hidden" name="typesAccor" value="sms,certificate,calc" />
+<div class="error">
+</div>
+<p>
+Po stisku „Přihlásit pomocí certifikátu“ budete přesměrováni na stránku ověřující klientský certifikát. Tlačítko
+stiskněte pouze tehdy, když
+</p>
+<ul>
+<li>máte zaregistrovaný přihlašovací certifikát v ISDS</li>
+<li>certifikát je nainstalovaný ve webovém prohlížeči, který právě používáte.</li>
+</ul>
+<p>
+Pokud při ověřování certifikátu dojde k chybě, webový prohlížeč zobrazí informaci, že se nemůže připojit.
+</p>
+<div class="form-group pt-0 mt-5 mb-5">
+<div class="checkbox">
+<label class="label-component">
+<input id="checkboxDoNotDispAnyMoreCA" type="checkbox" class="show-pointer"/>
+<span title="Checkbox" class="title">
+Na tomto počítači již nezobrazovat.
+</span>
+<span class="checkmark"></span>
+</label>
+</div>
+</div>
+<button type="button" id="buttonLoginWithCertificateCA" hyperlinkLocation="https://cert.mojedatovaschranka.cz/as/login?type=captcha&uri=https%3A%2F%2Fcert.mojedatovaschranka.cz%2Fportal%2FISDS%2F" class="btn btn-primary btn-lg btn--login ttu">
+<p>Přihlásit pomocí certifikátu</p>
+</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion__item">
+<div class="accordion__header" id="headingFour">
+<h5 class="mb-0">
+<button hyperlinkLocation="https://www.mojedatovaschranka.cz/as/login?type=calc&uri=https%3A%2F%2Fwww.mojedatovaschranka.cz%2Fportal%2FISDS%2F"
+class="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
+Přihlášení bezpečnostním kódem
+</button>
+</h5>
+</div>
+<div id="collapseFour" class="collapse " aria-labelledby="headingFour" data-parent="#accordionExample">
+<div class="accordion__body">
+<div class="row no-gutters">
+<div class="col-12 col-sm-6 login-box__column">
+<!-- HLAS: --> <h2 class="aural">Přihlašovací formulář</h2>
+<form id="IDPLoginTA" enctype="application/x-www-form-urlencoded" method="post" action="processLogin"
+autocomplete="off">
+<input type="hidden" name="type" value="captcha"/>
+<input type="hidden" name="uri" value="https://www.mojedatovaschranka.cz/portal/ISDS/"/>
+<input type="hidden" name="ats" value="false"/>
+<input type="hidden" name="isUriCert" value="false"/>
+<input type="hidden" name="typesTab" value="captcha,mep" />
+<input type="hidden" name="typesTabOrAccor" value="saml" />
+<input type="hidden" name="typesAccor" value="sms,certificate,calc" />
+<div class="error">
+</div>
+<div class="row no-gutters">
+<div id="usernameHolderTA" class="form-group icon-input input--border">
+<input type="text" class="form-control" id="Ecom_User_IDTA" name="Ecom_User_ID" placeholder=""
+title="Vyplňte přihlašovací jméno" maxlength="6" tabindex="1" />
+<label for="Ecom_User_IDTA" id="labelUsernameTA" class="control-label pl-3">Uživatelské jméno</label>
+</div>
+<div id="passwordHolderTA" class="form-group icon-input input--border input--white">
+<input type="password" class="form-control icon-control" id="Ecom_PasswordTA" name="Ecom_Password"
+placeholder="" title="Vyplňte přihlašovací heslo" tabindex="2" />
+<span class="d-none d-md-block keep-box-height">
+<i class="fa fa-keyboard-o clickable bigger" id="keyboard1TA" title="Otevřít grafickou klávesnici"></i>
+</span>
+<label for="Ecom_PasswordTA" id="labelPasswordTA" class="control-label pl-3">Heslo</label>
+</div>
+<div class="has-error" id="errorsAndWarningsTA">
+</div>
+<div id="calcHolderTA" class="form-group icon-input input--border">
+<input type="text" class="form-control" id="Ecom_HotpTA" name="Ecom_Hotp" placeholder=""
+title="Vyplňte kód z Vašeho tokenu" tabindex="3" />
+<label for="Ecom_HotpTA" id="labelCalcTA" class="control-label pl-3">Kód</label>
+</div>
+</div>
+<div class="row no-gutters">
+<button type="submit" class="btn btn-primary btn-lg btn--login ttu" name="send" id="Ecom_Button_LoginTA" tabindex="5">Přihlásit
+se
+</button>
+</div>
+</form>
+</div>
+<div class="col-12 col-sm-6 login-box__column">
+<p>
+Vyplňte své uživatelské jméno a heslo, vygenerujte si na svém zařízení bezpečnostní kód, opište jej do
+zbývajícího pole a přihlaste se. Bezpečnostní kód lze bezplatně generovat na zařízeních s operačním
+systémem iOS, Android a dalších. Bližší informace naleznete v nápovědě.<br/>
+<strong>Přihlášení bezpečnostním kódem nebude do budoucna podporováno. Doporučujeme přechod na přihlášení Mobilním klíčem.</strong>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 login-box__column">
+<ul class="login-box__links">
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page12.html" target="_blank">Jste zde poprvé?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page11.html" target="_blank">Nemůžete se přihlásit?</a>
+</li>
+<li class="login-box__links-item">
+<a href="/static/ISDS/help/page1.html#1_5" target="_blank" id="loginHelpLinkOO">Nápověda</a>
+</li>
+<li class="login-box__links-item">
+<a href="https://www.datoveschranky.info/informacni-video" target="_blank">Video návod</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="row no-gutters">
+<div id="keyboardMain" class="keyboardInvisible">
+<span id="keyboardClose">Zavřít okno s klávesnicí</span>
+<span>
+<a href="/static/ISDS/help/page1.html#1_5_2_1"
+title="Nápověda"
+id="keyboardHelp"
+target="_blank">Nápověda</a>
+</span>
+<div id="keyboard">
+<div id="keyb_row1">
+<span class="square button key disabled" id="keyN0"></span>
+<span class="square button key" id="keyN1">1</span>
+<span class="square button key" id="keyN2">2</span>
+<span class="square button key" id="keyN3">3</span>
+<span class="square button key" id="keyN4">4</span>
+<span class="square button key" id="keyN5">5</span>
+<span class="square button key" id="keyN6">6</span>
+<span class="square button key" id="keyN7">7</span>
+<span class="square button key" id="keyN8">8</span>
+<span class="square button key" id="keyN9">9</span>
+<span class="square button key" id="keyN10">0</span>
+<span class="square button key" id="keyN11">-</span>
+<span class="square button key" id="keyN12">=</span>
+<span id="row1Backspace" class="button grey small special">Back</span>
+</div>
+<div id="keyb_row2">
+<span id="row2Left" class="inactive"></span>
+<span class="square button key" id="keyN13">q</span>
+<span class="square button key" id="keyN14">w</span>
+<span class="square button key" id="keyN15">e</span>
+<span class="square button key" id="keyN16">r</span>
+<span class="square button key" id="keyN17">t</span>
+<span class="square button key" id="keyN18">y</span>
+<span class="square button key" id="keyN19">u</span>
+<span class="square button key" id="keyN20">i</span>
+<span class="square button key" id="keyN21">o</span>
+<span class="square button key" id="keyN22">p</span>
+<span class="square button key" id="keyN23">[</span>
+<span class="square button key" id="keyN24">]</span>
+<span class="square button key disabled" id="keyN25"></span>
+<span class="inactive"></span>
+</div>
+<div id="keyb_row3">
+<span id="row3CapsLock" class="button grey small special">Lock</span>
+<span class="square button key" id="keyN26">a</span>
+<span class="square button key" id="keyN27">s</span>
+<span class="square button key" id="keyN28">d</span>
+<span class="square button key" id="keyN29">f</span>
+<span class="square button key" id="keyN30">g</span>
+<span class="square button key" id="keyN31">h</span>
+<span class="square button key" id="keyN32">j</span>
+<span class="square button key" id="keyN33">k</span>
+<span class="square button key" id="keyN34">l</span>
+<span class="square button key disabled" id="keyN35"></span>
+<span class="square button key disabled" id="keyN36"></span>
+<span id="row3Right" class="inactive"></span>
+</div>
+<div id="keyb_row4">
+<span id="row4ShiftLeft" class="button grey small special">Shift</span>
+<span class="square button key" id="keyN37">z</span>
+<span class="square button key" id="keyN38">x</span>
+<span class="square button key" id="keyN39">c</span>
+<span class="square button key" id="keyN40">v</span>
+<span class="square button key" id="keyN41">b</span>
+<span class="square button key" id="keyN42">n</span>
+<span class="square button key" id="keyN43">m</span>
+<span class="square button key" id="keyN44">,</span>
+<span class="square button key" id="keyN45">.</span>
+<span class="square button key disabled" id="keyN46"></span>
+<span id="row4ShiftRight" class="button grey small special">Shift</span>
+</div>
+<div id="keyb_row5">
+<span id="row5Left" class="inactive" style="width: 110px"></span>
+<span class="button light small special" id="keyN47"> </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row no-gutters flex-grow-0 highlights">
+<div class="container p-5">
+<div class="row">
+<div class="col-12 col-lg-5">
+<h2 class="highlights__title">K čemu je<br> datová schránka?</h2>
+<ul class="highlights__list">
+<li class="highlights__list-item">Úřad otevřený 24/7.</li>
+<li class="highlights__list-item">Všechny důležité zprávy na jednom místě. Žádné ztracené papíry.</li>
+<li class="highlights__list-item">
+Datovou schránku založíte<br>na&nbsp;kterékoliv pobočce
+<a href="https://www.czechpoint.cz/public/" class="highlights__czechpoint" target="_blank"><span class="aural sr-only-focusable">CzechPOINT</span></a>
+</li>
+</ul>
+</div>
+<div class="col-12 col-lg-7">
+<img src="/as3/static/images/patforms-preview_png8.png" class="img-fluid" alt="Náhled na počítači, tabletu a mobilu" width="667" height="415">
+</div>
+</div>
+<div class="row">
+<div class="col highlights__more-info">
+<a href="https://www.datoveschranky.info" target="_blank" class="btn btn-secondary highlights__btn">
+<p>Více informací</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="login-footer">
+<div class="row no-gutters">
+<div class="col-12 col-sm-6 col-xl-7">
+<ul class="login-footer__links ttu">
+<li class="login-footer__link-item"><a href="https://www.mojedatovaschranka.cz/sds/" target="_blank">Seznam datových schránek</a></li>
+<li class="login-footer__link-item"><a href="/static/ISDS/help/page14.html" target="_blank">Ochrana osobních údajů</a></li>
+<li class="login-footer__link-item"><a href="/static/ISDS/help/page13.html" target="_blank">Prohlášení o přístupnosti</a></li>
+</ul>
+</div>
+<div class="col-12 col-sm-6 col-xl-5 login-footer__copyright">
+<span class="isds-text-white-transparent">Správce: Ministerstvo vnitra ČR <span class="delimiter">&middot;</span> Provozovatel: Česká pošta, s.p.</span>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
