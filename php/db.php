@@ -2,9 +2,9 @@
 
 //server
 
-$servername = "127.0.0.1";
-$username = "zsbohusovicec002";
-$password = "S9Mn14UO";
+$servername = 
+$username = 
+$password = 
 
 
 //localhost
