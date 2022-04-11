@@ -9,7 +9,10 @@
     <?php 
         include "head.php";
     ?>
+<style>
+ .trumbowyg-box, .trumbowyg-editor { min-height: 600px; } 
 
+</style>
 </head>
 
 <body>
@@ -29,7 +32,7 @@
                         <span class="text-center" style="/*border-bottom: 2px solid black;*/">
                         <?php 
                     if(isset($_SESSION['id_user']) && !empty($_SESSION['id_user'])) {
-                        echo 'Aktuální informace <i class="fas fa-edit" id="editText"></i>';
+                        echo 'Aktuální informace <i class="fas fa-edit" id="editText" style="cursor:pointer"></i>';
                      }else{
                         echo 'Aktuální informace';
                      }
@@ -37,6 +40,7 @@
                     
                     
                     </span></h2>
+                    <br>
                         <div class="contentText">
                             <?php 
                 
@@ -48,12 +52,12 @@
                 echo $row["body"];
                 ?>
                         </div>
-
+                        
                         <div class="mainText">
+                            
                             <div class="editorr">
 
                             </div>
-                            <button class="btn btn-success" id="ulozText">Upravit</button>
                         </div><br>
 
                         
@@ -374,6 +378,17 @@
             </div>
         </div>
     </div>
+
+    <button class="btn btn-success btn-lg" id="ulozText" style="position:sticky; left: 25px; bottom: 25px ">Upravit</button>
+    <button class="btn btn-danger btn-lg" id="zrus" onclick="location.reload()" style="position:sticky; left: 135px; bottom: 25px">Zrušit</button>    
+
+    
+    <?php 
+        include "php/db.php";
+
+        $sql = 'INSERT INTO visitors(page) VALUES("novinky")';
+        $conn->query($sql); 
+    ?>
     <?php 
         include "footer.php";
     ?>
@@ -393,38 +408,45 @@
 </body>
 <script src="assets/js/Trumbowyg-master/dist/plugins/colors/trumbowyg.colors.min.js"></script>
 <script>
-var x;
+
+
+$('#ulozText').hide();
+$('#zrus').hide();
 $('.mainText').hide();
-$('.editorr').trumbowyg({
-    autogrow: true,
-    btns: [
-        ['viewHTML'],
-        ['undo', 'redo'], // Only supported in Blink browsers
-        ['formatting'],
-        ['strong', 'em', 'del'],
-        ['superscript', 'subscript'],
-        ['link'],
-        ['insertImage'],
-        ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
-        ['unorderedList', 'orderedList'],
-        ['horizontalRule'],
-        ['removeformat'],
-        ['foreColor', 'backColor'],
-        ['fullscreen']
-    ]
-});
+
 $('#editText').on('click', function() {
     $.get("php/getText.php", function(result) {
         $('.editorr').append(result);
         $('.mainText').toggle();
+        $('.contentText').toggle();
+        $('#ulozText').toggle();
+        $('#zrus').toggle();
     })
+    $('.editorr').trumbowyg({
+        autogrow: false,
+        btns: [
+            ['viewHTML'],
+            ['undo', 'redo'], // Only supported in Blink browsers
+            ['formatting'],
+            ['strong', 'em', 'del'],
+            ['superscript', 'subscript'],
+            ['link'],
+            ['insertImage'],
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['removeformat'],
+            ['foreColor', 'backColor'],
+        ]
+    });
+
 });
 $("#ulozText").on('click', function() {
-    console.log($('.editorr').html());
+    //    console.log($('.editorr').html());
     $.post("php/setText.php", {
         text: $('.editorr').html()
     }, function(result) {
-        console.log(result);
+        //console.log(result);
         location.reload();
     });
 });

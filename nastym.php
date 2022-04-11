@@ -19,50 +19,40 @@
 
                 <p style="background-color: inherit;">
                                             
-                        <li>Třída "A":
+                        
+                        <h5>Třída <b>A</b></h5>
                             <ul style="list-style-type: circle;">
-                                <li>Bartušková Veronika</li>
+                            <li>Bc. Pospíšilová Lidmila</li>
+                            <li>Vokálová Jana</li>
+                            <li>Grindlerová Andrea - asistent pedagoga</li>
+                            </ul>
+                        
+                        <h5>Třída <b>B</b></h5>
+                            
+                            <ul style="list-style-type: circle;">
                                 <li>Šinfeltová Jitka</li>
-                            </ul>
-                        </li>
-                        <li>
-                            Třída "B":
-                            <ul style="list-style-type: circle;">
-                                <li>Bc.Kroufková Monika - vedoucí MŠ</li>
-                                <li>Rabyniuková Ilona</li>
-                                <li>Skalická Marcela - asistent pedagoga</li>
-                            </ul>
-                        </li>
-                        <li>
-                            Třída "C":
-                            <ul style="list-style-type: circle;">
-                                <li>Nováková Ludmila</li>
                                 <li>Hýřová Zuzana</li>
                             </ul>
-                        </li>
-                        <li>
-                            Třída "D":
+                        <h5>Třída <b>C</b></h5>
+                            
                             <ul style="list-style-type: circle;">
-                                <li>Bc.Pospíšilová Lidmila</li>
-                                <li>Rösslerová Stanislava</li>
-                                <li>Grindlerová Andrea - chůva</li>
+                                <li>Nováková Ludmila</li>
+                                <li>Bc.Kroufková Monika - <b>vedoucí MŠ</b></li>
+                                <li>Suchánková Markéta - asistent pedagoga</li>
                             </ul>
-                        </li>
-                
-                        <li>
-                            Provozní pracovnice
+                        <h5>Třída <b>D</b></h5>
+                            
+                            <ul style="list-style-type: circle;">                                
+                                <li>Rösslerová Stanislava</li>
+                                <li>Pokorná Tereza</li>
+                            </ul>
+                        <h5>Provozní pracovnice</h5>
+                            
                             <ul style="list-style-type: circle;">
                                 <li>Pelcová Iva</li>
                                 <li>Čapková Pavla</li>
                                 <li>Horáková Kateřina - částečný úvazek</li>
-                            </ul>
-                        
-                        <li>
-                            Pomocnice ve školství
-                            <ul style="list-style-type: circle;">
-                              <li>Vlčková Lucie - částečný úvazek <li>
-                            </ul>
-                        </li>
+                            </ul>                
                         <br>
             </div>
         </div>

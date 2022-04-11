@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="assets/js/Trumbowyg-master/dist/ui/trumbowyg.min.css">
     <link rel="stylesheet" href="assets/js/Trumbowyg-master/dist/plugins/colors/ui/trumbowyg.colors.min.css">
     <script src="https://kit.fontawesome.com/81b5858cd8.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="assets/icons/tab.png">
     ';
 /**
  * 

@@ -20,7 +20,7 @@
                     <br>
                     Základní škola a mateřská škola Bohušovice nad Ohří, příspěvková organizace, Husovo náměstí 112, 411 56<br><br><br>
                     <strong>775 584 292 - Mateřská škola, omluvy dětí, informace</strong><br>
-                    <strong>775 584 293 - Školní jídelna, vedoucí Školní jídelny Kateřína Mórová - omluvy dětí</strong><br>
+                    <strong>775 584 293 - Školní jídelna, vedoucí Školní jídelny Kateřina Mórová - omluvy dětí</strong><br>
                     <strong>416 781 216 - Školní jídelna a MŠ, omluvy dětí</strong><br>
                     <strong>602 761 942 - vedoucí mateřské školy Bc.Monika Kroufková</strong><br>
                     774 221 133 - ředitelka Základní a mateřské školy Mgr.Lenka Matoušovská<br>

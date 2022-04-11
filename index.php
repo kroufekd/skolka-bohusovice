@@ -37,7 +37,7 @@
     <?php 
         include "php/db.php";
 
-        $sql = 'UPDATE visitors SET counter=counter+1 WHERE id_visitor ="'. 1 . '"';
+        $sql = 'INSERT INTO visitors(page) VALUES("index")';
         $conn->query($sql); 
     ?>
     <?php 

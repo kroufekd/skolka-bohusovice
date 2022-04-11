@@ -12,6 +12,7 @@
                         <li class="nav-item" role="presentation"><a class="nav-link" href="kontakty.php" data-bs-hover-animate="jello" style="color: rgb(0,0,0);">Kontakty</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="fotogalerie.php" data-bs-hover-animate="jello" style="color: rgb(0,0,0);">Fotogalerie</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="distancni_vyuka.php" data-bs-hover-animate="jello" style="color: rgb(0,0,0);">Distanční výuka</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="zapis.php" data-bs-hover-animate="jello" style="color: rgb(0,0,0);"><button type="button" class="btn btn-outline-danger">Zápis 2022/2023</button></a></li>
                         <li class="dropdown nav-item"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" data-bs-hover-animate="jello" style="color: rgb(0,0,0);">Další</a>
                             <div class="dropdown-menu" role="menu" style="background-color: #ffc759;"><a class="dropdown-item" role="presentation" href="provoz.php">Provoz</a><a class="dropdown-item" role="presentation" href="svppv.php">ŠVP pv</a><a class="dropdown-item" role="presentation" href="pravidla.php">Pravidla</a>
                                 <a

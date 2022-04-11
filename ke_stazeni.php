@@ -47,7 +47,7 @@
                         include "php/db.php";
 
                         $result = $conn->query('
-                            SELECT * FROM files
+                            SELECT * FROM files order by id_file desc
                         ');
                         while($row = $result->fetch_assoc()){                           
                             if(isset($_SESSION['id_user']) && !empty($_SESSION['id_user'])){

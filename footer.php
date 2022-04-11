@@ -34,7 +34,7 @@
     <div class="row">
         <div class="col-lg-12 text-center" style="width: 100%;height: 30px;"><span
                 style="font-weight: 100;color: grey;">Copyright <a href="admin.php" style="color: inherit;">©</a>
-                Dominik Kroufek 2018<br></span></div>
+                Dominik Kroufek 2022<br></span></div>
         
     </div>
 </div>
